@@ -34,3 +34,6 @@ Verify with `shasum -a 256 -c data_checksums.sha256` (macOS), `sha256sum -c data
 
 ## Decisions
 See [DECISIONS.md](DECISIONS.md) for the main design choices and why they were made.
+
+##Prerequisites
+Google Cloud CLI 594 (incl. bq) · Python 3.12 · dbt-bigquery (version pinned in requirements.txt)

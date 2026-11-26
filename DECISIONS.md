@@ -41,3 +41,8 @@ Each entry: what was decided, why, and what else was considered.
 **Decision:** Dashboards in Data Studio (formerly Looker Studio).
 **Why:** Free for viewers, native BigQuery connector, scheduled email delivery for owner reports; adds a second BI tool next to Tableau (Project 1).
 **Considered:** Tableau Public.
+
+## 009 – Raw layer loaded as STRING, typed in staging (2026-11-26)
+**Decision:** H1 and H2 are loaded into `raw.h1_bookings` and `raw.h2_bookings` with every column as STRING; trimming, NULL handling and type casts happen in dbt staging.
+**Why:** The source pads values with spaces and writes NULL as text, so type autodetection is unreliable. Raw stays an exact copy of the source, loads never fail on odd values, and every conversion is visible SQL covered by tests (ELT pattern).
+**Considered:** `--autodetect` (risk of wrong types); a hand-written schema file at load time (explicit, but duplicates the typing logic that belongs in staging).
