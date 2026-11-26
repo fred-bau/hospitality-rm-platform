@@ -1,0 +1,17 @@
+# Data: downloaded manually, never committed
+data/
+
+# Secrets: keys and credentials never go to GitHub
+*.json
+*.p8
+*.pem
+.env
+
+# Python
+.venv/
+__pycache__/
+
+# dbt
+target/
+dbt_packages/
+logs/
